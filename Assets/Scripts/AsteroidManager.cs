@@ -33,10 +33,11 @@ public class AsteroidManager : MonoBehaviour
 
     private void CreateAsteroid()
     {
-
-
+        if (RadarManager.instance.asteroids.Count >= 10) return;
 
         GameObject go = GameObject.Instantiate(asteroid, transform.position, Quaternion.identity) as GameObject;
+
+        RadarManager.instance.asteroids.Add(go.transform);
 
         go.transform.parent = this.transform;
         go.transform.localPosition = new Vector3(Random.Range(-asteroidArea.x, asteroidArea.x),
@@ -45,7 +46,7 @@ public class AsteroidManager : MonoBehaviour
 
 
         Vector3 playerDirection = player.transform.position - go.transform.position ;
-        go.GetComponent<Rigidbody>().AddForce((playerDirection.normalized * force )+ (Random.insideUnitSphere) * speed, ForceMode.Impulse);
+        go.GetComponent<Rigidbody>().AddForce((playerDirection.normalized * Random.Range(force/4, force) )+ (Random.insideUnitSphere) * speed, ForceMode.Impulse);
         go.GetComponent<Rigidbody>().AddTorque(Random.insideUnitSphere * torqueForce);
     }
 }
