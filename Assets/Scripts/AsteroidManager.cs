@@ -11,6 +11,7 @@ public class AsteroidManager : MonoBehaviour
     private float asteroidDelayAux;
     public float speed;
     public float force;
+    public float torqueForce;
 
     void Start()
     {
@@ -45,5 +46,6 @@ public class AsteroidManager : MonoBehaviour
 
         Vector3 playerDirection = player.transform.position - go.transform.position ;
         go.GetComponent<Rigidbody>().AddForce((playerDirection.normalized * force )+ (Random.insideUnitSphere) * speed, ForceMode.Impulse);
+        go.GetComponent<Rigidbody>().AddTorque(Random.insideUnitSphere * torqueForce);
     }
 }
