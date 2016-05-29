@@ -23,8 +23,10 @@ public class RadarManager : MonoBehaviour {
         for (int i =0; i < asteroids.Count; i++)
         {
             asteroidsPoint[i].rectTransform.anchoredPosition = CheckDistanceOnRadar(asteroids[i]);
+            asteroidsPoint[i].rectTransform.localScale = CheckScaleOnRadar(asteroids[i]);
+
         }
-	}
+    }
 
     Vector2 CheckDistanceOnRadar(Transform t)
     {
@@ -35,5 +37,15 @@ public class RadarManager : MonoBehaviour {
         float distance = Vector3.Distance(v1, v2);
         Vector3 direction = v1 - v2;
         return new Vector2(direction.normalized.x * distance / maxDistance * 45, direction.normalized.z * distance / maxDistance * 45);
+    }
+
+
+    Vector2 CheckScaleOnRadar(Transform t)
+    {
+        Vector3 v1 = t.position;
+        Vector3 v2 = Movement.instance.nave.transform.position;
+        float distance = v1.y - v2.y;
+        float multiplier = Mathf.Clamp(Mathf.Abs(distance), 40 , 160);
+        return new Vector3(40 / multiplier, 40 / multiplier, 40 / multiplier);
     }
 }
