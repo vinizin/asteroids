@@ -18,7 +18,7 @@ namespace UnityStandardAssets.Cameras
         [SerializeField] private float m_TurnSmoothing = 0.1f;                // How much smoothing to apply to the turn input, to reduce mouse-turn jerkiness
         [SerializeField] private float m_TiltMax = 75f;                       // The maximum value of the x axis rotation of the pivot.
         [SerializeField] private float m_TiltMin = 45f;                       // The minimum value of the x axis rotation of the pivot.
-        [SerializeField] private bool m_LockCursor = false;                   // Whether the cursor should be hidden and locked.
+        [SerializeField] public bool m_LockCursor = false;                   // Whether the cursor should be hidden and locked.
         [SerializeField] private bool m_VerticalAutoReturn = false;           // set wether or not the vertical axis should auto return
 
         private float m_LookAngle;                    // The rig's y axis rotation.
@@ -28,8 +28,10 @@ namespace UnityStandardAssets.Cameras
 		private Quaternion m_PivotTargetRot;
 		private Quaternion m_TransformTargetRot;
         public Animator anim;
+        public static FreeLookCam instance;
         protected override void Awake()
         {
+            instance = this;
             base.Awake();
             // Lock or unlock the cursor.
             Cursor.lockState = m_LockCursor ? CursorLockMode.Locked : CursorLockMode.None;

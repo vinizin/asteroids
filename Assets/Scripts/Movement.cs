@@ -55,9 +55,19 @@ public class Movement : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        if(col.CompareTag("Asteroid") || col.CompareTag("Bound"))
+        if (col.CompareTag("Asteroid"))
         {
-            Invoke("LoadScene",2);
+            Invoke("LoadScene", 2);
+
+            nave.gameObject.SetActive(false);
+        }
+    }
+
+    void OnTriggerExit(Collider col)
+    {
+        if (col.CompareTag("Bound2"))
+        {
+            Invoke("LoadScene", 2);
 
             nave.gameObject.SetActive(false);
         }

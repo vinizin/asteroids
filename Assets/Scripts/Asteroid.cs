@@ -7,7 +7,7 @@ public class Asteroid : MonoBehaviour {
 
     void Start()
     {
-        Invoke("Explode",5);
+       // Invoke("Explode",5);
         life = Random.Range(3, 5);
         if (Random.RandomRange(0, 20) == 1)
         {
@@ -16,12 +16,11 @@ public class Asteroid : MonoBehaviour {
         transform.localScale = new Vector3(life, life, life)*10;
     }
 
-    void OnTriggerEnter(Collider col)
+    void OnTriggerExit(Collider col)
     {
-        if (col.gameObject.CompareTag("Bound"))
+        if (col.gameObject.CompareTag("Bound1"))
         {
-            RadarManager.instance.asteroids.Remove(this.transform);
-            Destroy(this.gameObject);
+            this.GetComponent<Rigidbody>().velocity = -this.GetComponent<Rigidbody>().velocity;           
         }
     }
 
@@ -37,7 +36,8 @@ public class Asteroid : MonoBehaviour {
 
     void Explode()
     {
-
+        if (AsteroidManagerSphere.instance != null)
+            AsteroidManagerSphere.instance.asteroids.Remove(this.gameObject);
         RadarManager.instance.asteroids.Remove(this.transform);
         explosion.transform.parent = null;
         explosion.Simulate(0);

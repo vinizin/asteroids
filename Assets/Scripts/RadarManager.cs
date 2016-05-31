@@ -20,11 +20,16 @@ public class RadarManager : MonoBehaviour {
     {
         Debug.Log(Movement.instance.nave.transform.root.transform.localEulerAngles.y);
         radarBackground.rectTransform.localRotation = Quaternion.Euler(0, 0, Movement.instance.nave.transform.root.transform.localEulerAngles.y);
-        for (int i =0; i < asteroids.Count; i++)
+
+        for (int j = 0; j < asteroidsPoint.Count; j++)
+        {
+            asteroidsPoint[j].rectTransform.anchoredPosition = Vector2.zero ;
+            asteroidsPoint[j].rectTransform.localScale = Vector3.zero;
+        }
+        for (int i = 0; i < asteroids.Count; i++)
         {
             asteroidsPoint[i].rectTransform.anchoredPosition = CheckDistanceOnRadar(asteroids[i]);
             asteroidsPoint[i].rectTransform.localScale = CheckScaleOnRadar(asteroids[i]);
-
         }
     }
 
