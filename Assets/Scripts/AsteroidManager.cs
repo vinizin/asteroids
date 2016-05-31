@@ -46,7 +46,7 @@ public class AsteroidManager : MonoBehaviour
 
 
         Vector3 playerDirection = player.transform.position - go.transform.position ;
-        go.GetComponent<Rigidbody>().AddForce((playerDirection.normalized * Random.Range(force/4, force * Mathf.Clamp((Score.instance.currentScore / 10.0f), 1, 10)) + (Random.insideUnitSphere) * speed), ForceMode.Impulse);
+        go.GetComponent<Rigidbody>().AddForce((playerDirection.normalized * Random.Range(force/4, force * Mathf.Clamp((Score.instance.currentScore / 2.0f), 1, 10)) + (Random.insideUnitSphere) * speed), ForceMode.Impulse);
         go.GetComponent<Rigidbody>().AddTorque(Random.insideUnitSphere * torqueForce);
     }
 }
