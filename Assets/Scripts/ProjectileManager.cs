@@ -10,7 +10,7 @@ public class ProjectileManager : MonoBehaviour
     public float shootDelay = 0.1f;
     private float shootDelayAux = 0.1f;
     public bool canShoot = true;
-
+    
     void Update()
     {
         if (Input.GetKey(KeyCode.Mouse0) && shootDelayAux <= 0 && canShoot)
@@ -24,7 +24,7 @@ public class ProjectileManager : MonoBehaviour
     void Shoot()
     {
         GameObject go = Instantiate(projectile, projectileLocator.transform.position, projectileLocator.transform.rotation) as GameObject;
-
+        AudioController.Play("Laser");
         go.GetComponent<Rigidbody>().AddForce(pivot.transform.forward * speedforce, ForceMode.Impulse);
         
     }

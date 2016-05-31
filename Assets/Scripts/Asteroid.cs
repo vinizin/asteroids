@@ -38,6 +38,7 @@ public class Asteroid : MonoBehaviour {
     {
         if (AsteroidManagerSphere.instance != null)
             AsteroidManagerSphere.instance.asteroids.Remove(this.gameObject);
+        AudioController.Play("Explosion");
         RadarManager.instance.asteroids.Remove(this.transform);
         explosion.transform.parent = null;
         explosion.Simulate(0);

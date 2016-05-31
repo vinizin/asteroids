@@ -27,10 +27,15 @@ public class Movement : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift))
         {
             anim.SetBool("Boost", true);
+
+            if (!boostEffect.gameObject.activeSelf)
+                AudioController.Play("Lightspeed");
+
             boostEffect.gameObject.SetActive(true);
 
             if (!boostEffect.isPlaying)
             {
+
                 pm.canShoot = false;
                 boostEffect.Play();
             }
@@ -38,6 +43,8 @@ public class Movement : MonoBehaviour
         }
         else
         {
+            AudioController.Stop("Lightspeed");
+
             if (boostEffect.isPlaying)
             {
                 pm.canShoot = true;

@@ -45,6 +45,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\AudioToolkit\AudioToolkit\AudioController.cs" />
+     <Compile Include="Assets\AudioToolkit\AudioToolkit\AudioFader.cs" />
+     <Compile Include="Assets\AudioToolkit\AudioToolkit\AudioItem.cs" />
+     <Compile Include="Assets\AudioToolkit\AudioToolkit\AudioLog.cs" />
+     <Compile Include="Assets\AudioToolkit\AudioToolkit\AudioObject.cs" />
+     <Compile Include="Assets\AudioToolkit\Demo\AudioToolkitDemo.cs" />
+     <Compile Include="Assets\AudioToolkit\ExampleBehaviours\PlayMusicOnStart.cs" />
+     <Compile Include="Assets\AudioToolkit\ExampleBehaviours\PlaySoundOnStart.cs" />
+     <Compile Include="Assets\AudioToolkit\Shared Auxiliary Code\ArrayHelper.cs" />
+     <Compile Include="Assets\AudioToolkit\Shared Auxiliary Code\FlashSupport.cs" />
+     <Compile Include="Assets\AudioToolkit\Shared Auxiliary Code\PoolableObject.cs" />
+     <Compile Include="Assets\AudioToolkit\Shared Auxiliary Code\RegisteredComponent.cs" />
+     <Compile Include="Assets\AudioToolkit\Shared Auxiliary Code\SystemTime.cs" />
+     <Compile Include="Assets\AudioToolkit\Shared Auxiliary Code\UnitySingleton.cs" />
      <Compile Include="Assets\C#\Fara_Controller.cs" />
      <Compile Include="Assets\C#\Reticle.cs" />
      <Compile Include="Assets\C#\mousePointer.cs" />
@@ -70,6 +84,7 @@
      <Compile Include="Assets\Sonic Ether\Natural Bloom\Demo Scene\Scripts\SENBDLMainCube.cs" />
      <Compile Include="Assets\Sonic Ether\Natural Bloom\Demo Scene\Scripts\SENBDLOrbitingCube.cs" />
      <Compile Include="Assets\Sonic Ether\Natural Bloom\Scripts\SENaturalBloomAndDirtyLens.cs" />
+     <None Include="Assets\AudioToolkit\Readme.txt" />
      <None Include="Assets\readme.txt" />
      <None Include="Assets\Standard Assets\Blob-Shadow\ShadowProjection.shader" />
      <None Include="Assets\Sonic Ether\Natural Bloom\Shaders\SENaturalBloomAndDirtyLens.shader" />
