@@ -11,6 +11,8 @@ public class Movement : MonoBehaviour
     public GameObject nave;
     public float speed;
     public ParticleSystem boostEffect;
+    public ParticleSystem explosion;
+
     public Animator anim;
     public ProjectileManager pm;
     public float deltaDistance = 0;
@@ -64,6 +66,11 @@ public class Movement : MonoBehaviour
     {
         if (col.CompareTag("Asteroid"))
         {
+            AudioController.Play("Explosion");
+            UnityStandardAssets.Cameras.FreeLookCam.instance.enabled = false;
+            explosion.transform.parent = null;
+            explosion.Simulate(0);
+            explosion.Play();
             Invoke("LoadScene", 2);
 
             nave.gameObject.SetActive(false);
@@ -74,6 +81,11 @@ public class Movement : MonoBehaviour
     {
         if (col.CompareTag("Bound2"))
         {
+            UnityStandardAssets.Cameras.FreeLookCam.instance.enabled = false;
+
+            explosion.transform.parent = null;
+            explosion.Simulate(0);
+            explosion.Play();
             Invoke("LoadScene", 2);
 
             nave.gameObject.SetActive(false);
