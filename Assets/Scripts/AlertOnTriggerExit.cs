@@ -12,6 +12,7 @@ public class AlertOnTriggerExit : MonoBehaviour {
     {
         if (col.CompareTag("Player"))
         {
+			AudioController.Play("Alarm");
             Alert.instance.ShowAlert(true);
         }
 
@@ -20,6 +21,7 @@ public class AlertOnTriggerExit : MonoBehaviour {
     {
         if (col.CompareTag("Player"))
         {
+			AudioController.Stop("Alarm");
             Alert.instance.ShowAlert(false);
         }
     }
