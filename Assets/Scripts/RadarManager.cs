@@ -49,8 +49,8 @@ public class RadarManager : MonoBehaviour {
     {
         Vector3 v1 = t.position;
         Vector3 v2 = Movement.instance.nave.transform.position;
-        float distance = v1.y - v2.y;
-        float multiplier = Mathf.Clamp(Mathf.Abs(distance), 40 , 160);
-        return new Vector3(40 / multiplier, 40 / multiplier, 40 / multiplier);
+        float distance = Vector3.Distance(v1,v2);
+        float multiplier = Mathf.Clamp(Mathf.Abs(distance), 150 , 400);
+        return new Vector3(150 / multiplier, 150 / multiplier, 150 / multiplier);
     }
 }
