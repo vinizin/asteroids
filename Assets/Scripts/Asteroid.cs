@@ -4,6 +4,7 @@ using System.Collections;
 public class Asteroid : MonoBehaviour {
     public float life = 4;
     public ParticleSystem explosion;
+    public ParticleSystem flame;
 
     void Start()
     {
@@ -44,5 +45,13 @@ public class Asteroid : MonoBehaviour {
         explosion.Simulate(0);
         explosion.Play();
         Destroy(this.gameObject);
+    }
+
+    void Update()
+    {
+        if (Vector3.Distance(Movement.instance.pivot.transform.position, transform.position) >= 1200)
+        {
+            Explode();
+        }
     }
 }

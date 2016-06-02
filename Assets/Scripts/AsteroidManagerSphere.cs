@@ -58,9 +58,9 @@ public class AsteroidManagerSphere : MonoBehaviour
         {
             go.transform.position = sphere.transform.position + Random.insideUnitSphere * Random.Range(0, sphere.GetComponent<SphereCollider>().radius);
         }
-        while (Vector3.Distance(go.transform.position, player.transform.position) <= 100);
+        while (Vector3.Distance(go.transform.position, Movement.instance.pivot.transform.position) <= 200);
 
-        Vector3 playerDirection = player.transform.position - go.transform.position ;
+        Vector3 playerDirection = Movement.instance.pivot.transform.position - go.transform.position ;
         go.GetComponent<Rigidbody>().AddForce((Random.insideUnitSphere * Random.Range(force/4, force) )+ (Random.insideUnitSphere) * speed, ForceMode.Impulse);
         go.GetComponent<Rigidbody>().AddTorque(Random.insideUnitSphere * torqueForce);
     }
